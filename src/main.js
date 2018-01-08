@@ -77,7 +77,7 @@ const store = new Vuex.Store({
     nubAdd2 (state){
       state.nub2 +=2
     },
-    nubAdd3 (state){
+    add3 (state){
       state.nub1 +=5
     },
     nubAdd4 (state, payload){

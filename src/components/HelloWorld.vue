@@ -18,6 +18,7 @@ import Vue from 'vue'
 
 import { mapState } from 'vuex'
 import { mapGetters } from 'vuex'
+import { mapMutations } from 'vuex'
 export default {
   name: 'HelloWorld',
   data () {
@@ -105,9 +106,22 @@ export default {
     add2 (){
       this.$store.commit('nubAdd2')
     },
-    add3 (){
-      this.$store.commit('nubAdd3')
-    },
+
+    // 
+    ...mapMutations([
+      'add3'
+    ]),
+    ...mapMutations({
+      'add5': 'SOME_MUTATIONcc'
+    }),
+
+    // add3 (){
+    //  this.$store.commit('nubAdd3')
+    //},
+    // add5 (){
+    //  this.$store.commit('SOME_MUTATIONcc')
+    // },
+
     add4 (){
       // 原始方法 直接传参
       // this.$store.commit('nubAdd4', 10)
@@ -122,9 +136,8 @@ export default {
         XX: 2
       })
     },
-    add5 (){
-      this.$store.commit('SOME_MUTATIONcc')
-    },
+
+
     changeS (e){
     let Ind = e.target.getAttribute('data-ind')
       this.$store.commit('changeS',Ind)
