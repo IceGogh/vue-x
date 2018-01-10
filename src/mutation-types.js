@@ -1,1 +1,1 @@
-export const SOME_MUTATION = 'SOME_MUTATIONcc'
+export const SOME_MUTATION = 'SOME_MUTATIONccName'

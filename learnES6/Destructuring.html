@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>函数参数结构</title>
+	</head>
+	<body>
+	</body>
+	<script>
+		var b = {ba:'b\'a', bb:'b\'b'}
+		var a = {aa: 'a\'a', ab:'a\'b'};
+//		console.log(cc)
+		function show(e){
+			console.log(a)
+		}
+		show()
+		
+		
+//		实参传入 b 对象,  在函数中 直接
+		;(function(e){
+			console.log(e.b)
+		})({b})
+	</script>
+</html>

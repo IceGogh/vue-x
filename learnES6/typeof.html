@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>判断数据类型</title>
+		<style>
+			.obj{
+				color: red;
+			}
+		</style>
+	</head>
+	<body>
+		<p>typeof   2      输出   number</p>
+       <p class="obj">typeof   null   输出   object</p>
+
+       <p class="obj">typeof   {}    输出   object</p>
+
+       <p class="obj">typeof    []    输出   object</p>
+
+       <p>typeof   (function(){})   输出  function</p>
+
+       <p>typeof    undefined         输出  undefined</p>
+
+       <p>typeof   '222'                 输出    string</p>
+
+      <p>typeof  true                   输出     boolean</p>
+      <h3>区分 Object 是对象，数组 还是null ?!  <span class="obj">Object.prototype.toString.call</span></h3>
+        <p>var   gettype=Object.prototype.toString</p>
+
+        <p>gettype.call('aaaa')        输出      [object String]</p>
+
+        <p>gettype.call(2222)         输出      [object Number]</p>
+
+        <p>gettype.call(true)          输出      [object Boolean]</p>
+
+        <p>gettype.call(undefined)  输出      [object Undefined]</p>
+
+        <p>gettype.call(null)                  输出   [object Null]</p>
+
+         <p>gettype.call({})                   输出   [object Object]</p>
+
+         <p>gettype.call([])                    输出   [object Array]</p>
+         <p>gettype.call(function(){})     输出   [object Function]</p>
+		
+	</body>
+</html>
