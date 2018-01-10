@@ -12,7 +12,8 @@
 	  	<router-link to="/comp1/id1">comp1-1</router-link>
 	  	<router-link to="/comp1/id2">comp1-2</router-link>
 	  	<router-link to="/comp2">comp2</router-link>
-	  	<router-link to="/comp3">comp3</router-link>
+	  	<router-link :to="{name: 'comp333'}">comp3</router-link>
+	  	<router-link to="/comp4">comp4</router-link>
 	  </div>
 	  <router-view/>
 	</div>
@@ -25,6 +26,7 @@ import VueRt from 'vue-router'
 import Comp1 from './comp1'
 import Comp2 from './comp2'
 import Comp3 from './comp3'
+import Comp4 from './comp4'
 import ChildComp from './childComp'
 import ChildComp2 from './childComp2'
 
@@ -38,18 +40,18 @@ import { mapActions } from 'vuex'
 
 const routes = [
 	{ path: '/', redirect: '/comp2' },
-  { path: '/comp1/:id', component: Comp1 },
-  { path: '/comp2', component: Comp2 },
-  { path: '/comp3', component: Comp3,
+  { name: 'comp1', path: '/comp1/:id', component: Comp1 },
+  { name: 'comp2',  path: '/comp2', component: Comp2 },
+  { name: 'comp333',  path: '/comp3', component: Comp3,
   	children: [
 				{
-					path: '', component: ChildComp 
+					 path: '', component: ChildComp 
 				},
 				{
-					path: 'child1', component: ChildComp 
+					name: 'child1', path: 'child1', component: ChildComp 
 				},
 				{
-					path: 'child2', component: ChildComp2 
+					name: 'child2', path: 'child2', component: ChildComp2 
 				}
 			]
   }
