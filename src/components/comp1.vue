@@ -3,6 +3,7 @@
 		<button  @click="nub1AddComp1">{{comp1nub1}}</button>
 		<div>{{$route.params.id}}</div>
 		<div>111111</div>
+		<img  src="https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png"/>
 		<router-view/>
 	</div>
 </template>

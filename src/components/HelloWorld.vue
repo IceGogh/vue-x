@@ -1,6 +1,9 @@
 <template>
   <div>
-    <button @click="add1">{{ nub1 | addYrs }}</button>
+    <button @click="add1">{{ nub1 | addYrs }} ?? <span style="color: red;">{{AppProps}}</span></button>
+    <br />
+    <button @click="add1plus">{{AppProps}}</button>
+    <br />
     <button @click="add2">{{nub2}}</button>
     <button @click="add3">{{nub1}}</button>
     <button @click="add4">{{nub4}}</button>
@@ -8,6 +11,7 @@
     <div v-for="(item,index) in statusT" @click="changeS" :data-ind="index">{{item.text}}</div>
     <div>Length: {{ statesTLen }}</div>
     <div>2:{{getById(2)}}</div>
+    <span v-pre v-cloak>{{ this will not be compiled }} v-cloak 在style中定义 直接</span>
   	<div>
 	  	<router-link to="/comp1/id1">comp1-1</router-link>
 	  	<router-link to="/comp1/id2">comp1-2</router-link>
@@ -63,6 +67,9 @@ const router = new VueRt({
 export default {
   name: 'HelloWorld',
   router,
+  props: [
+  	"AppProps"
+  ],
   data () {
     return {
       msg: 'Welcome to Your Vue.js App',
@@ -147,7 +154,9 @@ export default {
 
   methods: {
   	
-  	
+  	add1plus(){
+  		this.$emit('changeByEmit', 1111)
+  	},
 //	...mapActions({
 //		add1: 'nubAdd'
 //	}),
@@ -220,6 +229,9 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+[v-cloak] {
+  color: red;
+}
 h1, h2 {
   font-weight: normal;
 }

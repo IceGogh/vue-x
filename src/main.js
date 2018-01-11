@@ -75,14 +75,14 @@ const store = new Vuex.Store({
   },
   actions: {
 		nubAdd ({ commit: commit }) {
-			console.log('dispatch!')
+//			console.log('dispatch!')
 			commit('nubAdd')
 		},
 //		nubAdd2 (context, nub){
 //    context.commit('nubAdd2', nub)
 // 	},
    	nubAdd2 ({commit, state},nub){
-   		console.log(state.nub2)
+// 		console.log(state.nub2)
    		commit('nubAdd2', nub)
    	}
   },
@@ -91,7 +91,7 @@ const store = new Vuex.Store({
   		(state, payload) => state.nub1 -= payload
  		,
     nubAdd: function(state){
-    	console.log('mutations!')
+//  	console.log('mutations!')
       state.nub1 ++
     },
     // 动态 mutations 方法  真正方法名 在 mutation-types.js 中定义 对应到 子组件促发的事件
@@ -124,6 +124,37 @@ const App2018 = new Vue({
   el: '#app',
   store,
   router,
+  beforeCreate(){
+  	console.log('b4create! ',new Date().getTime(), new Date().getSeconds());
+  	console.log('this.$el: ', this.$el)
+  	console.log('this.$data: ', this.$data)
+  	console.log('this.a: ', this.a)
+  	
+  },
+  created(){
+  	console.log('created ',new Date().getTime(), new Date().getSeconds())
+  	console.log('this.$el: ', this.$el)
+  	console.log('this.$data: ', this.$data)
+		console.log('this.a: ', this.a)
+  },
+  beforeMount(){
+  	console.log('b4Mount! ',new Date().getTime(),new Date().getSeconds())
+  	console.log('this.$el: ', this.$el)
+  	console.log('this.$data: ', this.$data)
+		console.log('this.a: ', this.a)
+  },
+  mounted(){
+  	console.log('Mounted! ',new Date().getTime(),new Date().getSeconds())
+  	console.log('this.$el: ', this.$el)
+  	console.log('this.$data: ', this.$data)
+		console.log('this.a: ', this.a)
+  },
+  beforeUpdate(){
+  	console.log('b4Update! ',new Date().getTime(),new Date().getSeconds())
+  	console.log('this.$el: ', this.$el)
+  	console.log('this.$data: ', this.$data)
+		console.log('this.a: ', this.a)
+	},
   data (){
     return {
       MainData: {
